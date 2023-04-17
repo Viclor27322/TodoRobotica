@@ -24,12 +24,12 @@ const ShowUsers = () => {
 
     useEffect(()=>{
         getUsers();
-    },[]);/* 
+    },[]);
     useEffect(()=>{
         if(!isAuthenticated){
             history('/');
         }
-    }) */
+    }) 
 
     const getUsers =async()=>{
         const respuest = await axios.get(urll);
