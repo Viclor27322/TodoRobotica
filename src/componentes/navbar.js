@@ -65,6 +65,9 @@ export default function Navbarr(){
                     <li class="elenavegación listasinicio">
                       <Link  class="navegarlink texto-superiorcaso" to={'/ayuda'}>Ayuda</Link>
                     </li>
+                    <li class="elenavegación listasinicio">
+                      <Link  class="navegarlink texto-superiorcaso" to={'http://blas.equipounoyseiscommx.com/maceta/mostrar.php'}>Iot</Link>
+                    </li>
                 
                 </ul>
             </div>
