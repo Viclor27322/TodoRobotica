@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#main-conteiner1 {
+    margin: 10px 80px 30px 80px;
+    text-align: justify;
+}
+
+.main-conteiner2 {
+    text-align: center;
+    background: white;
+    border-radius: 20px;
+    padding: 4%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #fff
+}
+
+h4 {
+    font-weight: 300;
+    margin: 10px 0px;
+
+}
+
+i {
+    margin: 0px 10px;
+}
+
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+    color: #ffffff;
+}
+
+
+.nav-link:focus,
+.nav-link:hover {
+    color: #ffffff;
+}
+
+
+#icon-scales {
+    width: 30px;
+
+}
+
+/* quines somos */
+
+.titulosomos{
+    color: black;
+}
+
+
+.login{
+    background: rgb(124, 9, 9);
+}
+
+.ayuda_text{
+    color: rgb(0, 0, 0);
+}
+
+.ayuda-conte{
+    background: #483ceb;
+    width: 90%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* ************************************************************ 
+<!-- MEDIA QUERY -->
+************************************************************  */
+
+
+@media only screen and (min-width:200px) and (max-width:800px) {
+
+    #main-conteiner1 {
+        margin: 100px 30px 30px 30px;
+       
+
+    }
+
+    #main-conteiner2 {
+        
+        text-align: justify;
+
+    }
+
+    h1 {
+        margin: 20px 0px;
+        font-size: 25px;
+    }
+
+}
