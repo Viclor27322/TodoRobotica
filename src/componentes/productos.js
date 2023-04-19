@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React ,{useEffect,useState,useContext } from 'react'
 import axios from 'axios';
 import { show_alerta } from '../funtions';
@@ -84,14 +83,13 @@ export default function Productoss() {
                 <section className="description" >
                   <h2>{producto.nombre}</h2>
                   <img src={producto.Imagen}/>
-                  <p>Descripcion: {producto.Descripcion}</p>
                   <h4>Precio : ${producto.precio}</h4>
                   <label>Existencia: </label>
                   <span className="myRange">
                     <input type="number" id="no2" min="0" tab-index="2" placeholder="0" value={producto.Existencia} />
                   </span>
                   <br/>
-                  <button onClick={()=> openModal(producto._id,producto.nombre,producto.descripcion,producto.precio,producto.existencia,producto.Categoria,producto.imagen)} 
+                  <button onClick={()=> openModal(producto._id,producto.nombre,producto.Descripcion,producto.precio,producto.Existencia,producto.Categoria,producto.Imagen)} 
                   data-bs-toggle='modal' data-bs-target='#modalProducts' className='btn' id='btn-Agregar'>Ver mas...</button> 
                 </section>
             </div>

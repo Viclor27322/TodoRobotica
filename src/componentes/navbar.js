@@ -42,26 +42,32 @@ export default function Navbarr(){
                     <li class="elenavegación listasinicio">
                       <Link  class="navegarlink texto-superiorcaso" to={'/productos'}>Catalogo</Link>
                     </li>
-          
-                    {isAuthenticated !== null ? (
+                    <li class="elenavegación listasinicio">
+                      <Link  class="navegarlink texto-superiorcaso" to={'http://blas.equipounoyseiscommx.com/maceta/mostrar.php'}>Iot</Link>
+                    </li>
+                    <li class="">
+                      {isAuthenticated !== null ? (
                       isAuthenticated ? (
-                        <div>
+                        <div class="d-flex">
                           <li class="elenavegación listasinicio">
-                          <input type="button" className="navegarlink texto-superiorcaso bg-primary" onClick={Salir} value="Logout"/> 
+                          <Link  class="navegarlink texto-superiorcaso d-flex" to={'/perfil'}>Perfil</Link>
+                          </li>
+                          <li class="elenavegación listasinicio">
+                          <input type="button" className="navegarlink texto-superiorcaso bg-transparent border-0" onClick={Salir} value="Cerrar Sesíon"/> 
                           </li>
                         </div>
                       ) : (
-                        <div className='d-flex'>
-                          <li class="elenavegación listasinicio">
-                              <Link  class="navegarlink texto-superiorcaso" to={'/registro'}>Registro</Link>
+                        <div className='d-flex '>
+                          <li class="elenavegación listasinicio ">
+                              <Link  class="navegarlink texto-superiorcaso d-flex" to={'/registro'}>Registro</Link>
                             </li>
                             <li class="elenavegación listasinicio">
-                              <Link  class="navegarlink texto-superiorcaso" to={'/login'}>Inicio de sesión</Link>
+                              <Link  class="navegarlink texto-superiorcaso d-flex" to={'/login'}>Inicio de sesión</Link>
                             </li>
                         </div>
                       )
                     ) : null}
-
+                    </li>
                     <li class="elenavegación listasinicio">
                       <Link  class="navegarlink texto-superiorcaso" to={'/ayuda'}>Ayuda</Link>
                     </li>

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import '../css/login.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,9 +11,19 @@ export default function Registro() {
     const [password1, setPass] = useState('');
     const [password2, setPass2] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    
+    useEffect(() => {
+        setErrorMessage('');
+      }, []);
+    
+    
 
     const handleRegistro = (e) => {
         e.preventDefault();
+        if (! /^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$/.test(password1)) {
+            setErrorMessage('La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número para ser aceptada');
+            return;
+          }
         if (password1 !== password2) {
             setErrorMessage('Las contraseñas no coinciden');
             return;
@@ -55,7 +65,7 @@ export default function Registro() {
             })
             .catch(error => {
                 console.error(error);
-                setErrorMessage('Hubo un error al iniciar sesión');
+                setErrorMessage('Hubo un error al crear la cuenta');
             });
         }
         })
