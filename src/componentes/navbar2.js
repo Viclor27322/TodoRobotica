@@ -37,19 +37,22 @@ function Navbar2() {
                     <li class="elenavegación listasinicio">
                       <Link  class="navegarlink texto-superiorcaso" to={'/Admin'}>Productos</Link>
                     </li>
+                    <li class="elenavegación listasinicio">
+                      <Link  class="navegarlink texto-superiorcaso" to={'http://blas.equipounoyseiscommx.com/maceta/mostrar.php'}>Iot</Link>
+                    </li>
 
                     {isAuthenticated !== null ? (
                       isAuthenticated ? (
                         <div>
                           <li class="elenavegación listasinicio">
-                          <input type="button" className="navegarlink texto-superiorcaso bg-primary" onClick={Salir} value="Logout"/> 
+                          <input type="button" className="navegarlink texto-superiorcaso bg-transparent border-0" onClick={Salir} value="Cerrar sesión"/> 
                           </li>
                         </div>
                       ) : (
                         <div className='d-flex'>
                           <li class="elenavegación listasinicio">
                               <Link  class="navegarlink texto-superiorcaso" to={'/registro'}>Registro</Link>
-                            </li>
+                          </li>
                             
                         </div>
                         

@@ -2,12 +2,11 @@ import React,{useState,useContext} from 'react';
 import '../css/login.css';
 import logo from '../img/logo.png';
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../Auth/useAuth';
 import { AuthContext } from '../Auth/AuthProvider';
-import { Alert } from 'bootstrap';
+
 
 export default function Login() {
-  const url = 'https://proyectonuevo-vercel.vercel.app/api/usuarios';
+ 
   const {login} = useContext(AuthContext);
   const history = useNavigate();
   const [usuario,setUser]=useState('');
@@ -15,36 +14,6 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-/*   const handleLogin =(e) => {
-    e.preventDefault();
-    if (password.length < 2) {
-      setErrorMessage('La contraseña debe tener al menos 8 caracteres');
-      return;
-    }
-
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        const user = data.find(u => u.correo === correo && u.password === password && u.usuario===usuario);
-        if (user) {
-          login(user);
-          if(user.rol[0].rol==="Usuario"){
-            history('/Userinicio');
-          }
-          else{
-            history('/admin');
-          }
-        } else {
-          setErrorMessage('El correo electrónico o la contraseña son incorrectos');
-        }
-        console.log(user);
-      })
-      .catch(error => {
-        console.error(error);
-        setErrorMessage('Hubo un error al iniciar sesión');
-      });
-
-  }; */
   const handleLogin = async (e) => {
     e.preventDefault();
     try 
@@ -71,6 +40,7 @@ export default function Login() {
       } else {
         setErrorMessage('El correo electrónico o la contraseña son incorrectos');
       }
+      console.log(usuario);
     } catch (error) {
       console.error(error);
         setErrorMessage('Hubo un error al iniciar sesión');
@@ -122,7 +92,7 @@ export default function Login() {
                                     <br/>
 
                       
-                                    <a href="recuperar_passw.php" className="account ">¿Se te olvidó tu contraseña?</a>
+                                    <a href="/recuperacion" className="account ">¿Se te olvidó tu contraseña?</a>
                                 </form>
 
                             </div>

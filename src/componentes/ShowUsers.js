@@ -3,7 +3,6 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { show_alerta } from '../funtions';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
@@ -24,7 +23,7 @@ const ShowUsers = () => {
 
     useEffect(()=>{
         getUsers();
-    },[]);
+    },[]); 
     useEffect(()=>{
         if(!isAuthenticated){
             history('/');
@@ -144,7 +143,7 @@ const ShowUsers = () => {
         <div className='row mt-2'>
           <div className='col-12 col-lg-10 offset-0 offset-lg-2 '>
             <div className='table-responsive'>
-             <table className='table table-bordered text-white'>
+             <table className='table table-bordered text-black'>
                     <thead>
                         <tr><th>#id</th><th>Nombre</th><th>Usuario</th><th>Contraseña</th><th>Correo</th><th></th></tr>
                     </thead>

@@ -1,46 +1,65 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import '../css/login.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function Registro() {
+    const url = 'https://proyectonuevo-vercel.vercel.app/api/usuarios';
     const history = useNavigate();
     const [nombre, setNombre] = useState('');
-    const [user, setUser] = useState('');
-    const [email, setEmail] = useState('');
-    const [pass1, setPass] = useState('');
-    const [pass2, setPass2] = useState('');
+    const [usuario, setUser] = useState('');
+    const [correo, setEmail] = useState('');
+    const [password1, setPass] = useState('');
+    const [password2, setPass2] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleRegistro = (e) => {
         e.preventDefault();
-        if (pass1 != pass2) {
+        if (password1 !== password2) {
             setErrorMessage('Las contraseñas no coinciden');
             return;
-        } else {
-            fetch('https://proyectonuevo-vercel.vercel.app/api/usuarios', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    nombre: nombre,
-                    usuario: user,
-                    password: pass1,
-                    correo: email
-                })
+        } 
+        // Validar el correo electrónico
+        if (!/\S+@\S+\.\S+/.test(correo)) {
+            setErrorMessage("Ingresa un correo electrónico válido");
+            return;
+          }
+        if (!/^[a-zA-Z]+$/.test(nombre)) {
+        setErrorMessage("El nombre solo debe tener letras");
+        return;
+        
+        }else{
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+        const userr = data.find(u => u.correo === correo && u.usuario===usuario);
+        if (userr) {
+            setErrorMessage('El usuario o correo ya existen');
+
+        }else {
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                nombre: nombre,
+                usuario: usuario,
+                password: password1,
+                correo: correo
             })
-                .then(response => response.json())
-                .then(data => {
-                    //alert(data);
-                    history('/login');
-                })
-                .catch(error => {
-                    console.error(error);
-                    setErrorMessage('Hubo un error al iniciar sesión');
-                });
+        })
+            .then(response => response.json())
+            .then(data => {
+                //alert(data);
+                history('/login');
+            })
+            .catch(error => {
+                console.error(error);
+                setErrorMessage('Hubo un error al iniciar sesión');
+            });
         }
-
-
+        })
+        }
     };
     return (
         <div class="registrocontenedor">

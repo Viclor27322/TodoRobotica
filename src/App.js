@@ -19,6 +19,7 @@ import { AuthContextProvider } from './Auth/AuthProvider';
 import ShowUsers from './componentes/ShowUsers';
 import Admin from './views/Admin';
 import Users from './views/ShowUsers';
+import recuperar from './views/recuperacion';
 function App() {
   return (
     <AuthContextProvider>
@@ -35,7 +36,8 @@ function App() {
               <Route path='/Userinicio' Component={Userinicio}></Route>
               <Route path='/showProducts' Component={ShowProductos}></Route>
               <Route path='/Admin' Component={Admin}></Route>    
-              <Route path='/ShowUsers' Component={Users}></Route> 
+              <Route path='/ShowUsers' Component={Users}></Route>
+              <Route path='/recuperacion' Component={recuperar}></Route>
         </Routes>
       </BrowserRouter>
   </AuthContextProvider>

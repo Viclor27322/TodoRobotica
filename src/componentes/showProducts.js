@@ -24,12 +24,12 @@ const ShowProductos = () => {
 
     useEffect(()=>{
         getProducts();
-    },[]);/* 
+    },[]); 
    useEffect(()=>{
         if(!isAuthenticated){
             history('/');
         }
-    })  */
+    }) 
 
     const getProducts =async()=>{
         const respuest = await axios.get(urll);
@@ -170,7 +170,7 @@ const ShowProductos = () => {
         <div className='row mt-3'>
           <div className='col-12 col-lg-8 offset-0 offset-lg-2'>
             <div className='table-responsive'>
-            <table className='table table-bordered text-white'>
+            <table className='table table-bordered text-black'>
                     <thead>
                         <tr><th>#id</th><th>Producto</th><th style={{ width: '150px' }}>Imagen</th><th>Descripcion</th><th>Precio</th><th>Existencia</th><th>Categoria</th><th></th></tr>
                     </thead>
